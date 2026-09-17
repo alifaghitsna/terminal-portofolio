@@ -41,7 +41,13 @@ function Form(){
                 };
 
                 if (links[val]) {
-                    window.open(links[val], "_blank", "noopener,noreferrer");
+                    const a = document.createElement("a");
+                    a.href = links[val];
+                    a.target = "_blank";
+                    a.rel = "noopener noreferrer";
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
                 }
                 
                 setInput([...input, val]);
