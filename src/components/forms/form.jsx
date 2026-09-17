@@ -25,30 +25,28 @@ function Form(){
 
         switch (event.key) {
             case "Enter":
-                if (event.target.value === "linkedin") {
-                    window.open("https://www.linkedin.com/in/alif-aghitsna-mahara-a2066b421/");
-                } else if (event.target.value === "github") {
-                    window.open("https://github.com/alifaghitsna");
-                } else if (event.target.value === "email") {
-                    window.open("mailto:alifmahara60@gmail.com");
-                } else if (event.target.value === "portfolio") {
-                    window.open("https://alifaghitsna.github.io/");
-                } else if (event.target.value === "expense-tracker") {
-                    window.open("https://github.com/alifaghitsna/expense-tracker");
-                } else if (event.target.value === "tic-tac-toe") {
-                    window.open("https://tic-tac-toe-alpha-two-29.vercel.app/");
-                } else if (event.target.value === "omah") {
-                    window.open("https://alifaghitsna.github.io/Omah");
-                } else if (event.target.value === "landscapio") {
-                    window.open("https://alifaghitsna.github.io/landscapio");
-                } else if (event.target.value === "sudo") {
-                    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-                } else if (event.target.value === "repo") {
-                    window.open("https://github.com/alifaghitsna/terminal-portofolio");
+                {
+                const val = event.target.value.trim().toLowerCase();
+                const links = {
+                    "linkedin": "https://www.linkedin.com/in/alif-aghitsna-mahara-a2066b421/",
+                    "github": "https://github.com/alifaghitsna",
+                    "email": "mailto:alifmahara60@gmail.com",
+                    "portfolio": "https://alifaghitsna.github.io/",
+                    "expense-tracker": "https://github.com/alifaghitsna/expense-tracker",
+                    "tic-tac-toe": "https://tic-tac-toe-alpha-two-29.vercel.app/",
+                    "omah": "https://alifaghitsna.github.io/Omah",
+                    "landscapio": "https://alifaghitsna.github.io/landscapio",
+                    "sudo": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                    "repo": "https://github.com/alifaghitsna/terminal-portofolio",
+                };
+
+                if (links[val]) {
+                    window.open(links[val], "_blank", "noopener,noreferrer");
                 }
                 
-                setInput([...input, event.target.value]);
-                setInputHistory([...inputHistory, event.target.value]);
+                setInput([...input, val]);
+                setInputHistory([...inputHistory, val]);
+                }
 
                 event.target.value = "";
                 setWidth(0);
